@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include "timer.h"
+
 using namespace std;
 
 auto read_csv(string filename){
@@ -76,6 +78,12 @@ double pearson(map<string,map<string,float>> d, string key1, string key2){
 
 int main() {
     map<string,map<string,float>> Data = read_csv("ratings.csv");
-    cout<<pearson(Data,"4","20");
+    //double start, end;
+    double start_time, finish_time, time_elapsed;
+    start_time = clock();
+    pearson(Data,"4","20");
+    finish_time = clock();
+    time_elapsed = (finish_time - start_time)/CLOCKS_PER_SEC;
+    printf("%.10f\n", time_elapsed);
     return 0;
 }
